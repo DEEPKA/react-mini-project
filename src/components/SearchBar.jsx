@@ -4,12 +4,33 @@ class SearchBar extends Component {
     state = { 
             term : '',
          }
-    onInputChange = (e) => {
-    
-        this.setState({term: e.target.value });
+         componentWillMount(){
+            document.addEventListener("keyup", this.handleKeyUp.bind(this));
+          }
+          componentWillUnmount(){
+            document.addEventListener("keyup", this.handleKeyUp.bind(this));
+          }
+    onInputChange = (e) => {   
+        // console.log('TEST : ',e.target.value); 
+        if (e.target.vale === '' ) {
+            this.setState({term: '' });
+        } else {
+            this.setState({term: e.target.value });
+        }
         this.props.onChange( this.state.term );
+       
     }
-
+    handleKeyUp(e){ 
+        if (e.target.vale === '' ) {
+            this.setState({term: '' });
+        } else {
+            this.setState({term: e.target.value });
+        }
+       
+        this.props.onChange( this.state.term );
+        // console.log('keypress : ',e.target.value); 
+       
+    }
     render() {
      
         return (
@@ -19,6 +40,7 @@ class SearchBar extends Component {
                     <div className="ui search">
                     <label>Search Here </label>
                         <input className="prompt" type="text"
+                        onKeyUp={(e) => { this.handleKeyUp(e) } }
                          onChange={ (e) => { this.onInputChange(e) } }
                          value={ this.state.term.toUpperCase() }
                          placeholder="Search ..." />

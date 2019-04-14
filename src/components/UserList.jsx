@@ -15,7 +15,7 @@ class  UserList extends Component {
                     <div className="content">
                         <div className="header">{ this.props.repoUser.name }</div>
                         <div className="description">
-                            {`${ (this.props.repoUser.name) ? this.props.repoUser.name : '' } is a user live in ${ (this.props.repoUser.location) ? this.props.repoUser.location : '' }`}
+                            {`${ (this.props.repoUser.name) ? this.props.repoUser.name : '' } ${ (this.props.repoUser.name) ? ' a user live in ': '' } ${ (this.props.repoUser.location) ? this.props.repoUser.location : '' }`}
                         </div>
                     </div>
                     <div className="extra content">

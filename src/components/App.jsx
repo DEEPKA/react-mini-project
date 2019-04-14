@@ -9,15 +9,18 @@ class App extends Component {
                 repos: []
     }
     onSearchChange = async ( term ) => {
-     
+
         const response =  await github.get(`/users/${term}`);
       
             const repos = response.data;
-         
-            this.setState({ repos: repos });    
+            
+            
+                this.setState({ repos: repos }); 
+  
     }
     
     render () {
+       
         return (
         
                     <div>
@@ -27,9 +30,6 @@ class App extends Component {
                         <SearchBar onChange = { this.onSearchChange  } />
                         <SearchResult repos={ this.state.repos } />
                 </div>
-                {/* <div className="row">
-                    <UserList />
-                </div> */}
             </div>
                     </div>
                 

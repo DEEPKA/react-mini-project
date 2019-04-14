@@ -2,8 +2,7 @@ import React, { Component, Fragment } from 'react';
 import UserList from './UserList';
 class  SearchResult extends Component {
     state = { 
-        repoUser: [],
-
+        repoUser: []
     }
     renderList = ( ) => {
                 
@@ -14,29 +13,25 @@ class  SearchResult extends Component {
     
     
     results = () => {
-        if( ! this.props ) {
-            return null
-        }
-      
-        // const { id, login } = this.props.repos;
-        // console.log(id, login);
-          
         
+        if(Object.keys(this.props.repos).length === false ) {
+          return null; 
+        }
+        const  { login, id } = this.props.repos;
         
         return (
             <div className="ui relaxed divided list">
             <button className="ui basic button" onClick={ this.renderList }>        
-                <div id={ this.props.repos.id }>
-                    <span>{ this.props.repos.login }</span>
+                <div id={ id }>
+                    <span>{ login }</span>
                 </div>
             </button>
              </div>
-           
         );
   };  
   
   render () {
-    // console.log('test search Result page : ',this.props.length);
+ // console.log('test search Result page : ', this.props.repos.login );
 
     return (
    

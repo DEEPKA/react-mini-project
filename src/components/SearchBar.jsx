@@ -11,13 +11,13 @@ class SearchBar extends Component {
             document.addEventListener("keyup", this.handleKeyUp.bind(this));
           }
     onInputChange = (e) => {   
-        // console.log('TEST : ',e.target.value); 
+         // console.log('TEST : ',e.target.value); 
         if (e.target.vale === '' ) {
             this.setState({term: '' });
         } else {
             this.setState({term: e.target.value });
         }
-        this.props.onChange( this.state.term );
+        this.props.onChange( e.target.value );
        
     }
     handleKeyUp(e){ 

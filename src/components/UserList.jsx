@@ -20,10 +20,10 @@ class  UserList extends Component {
                     </div>
                     <div className="extra content">
                         <span className="right floated">
-                            {`Public Repos ${this.props.repoUser.public_repos}`}   </span>
+                            {`Public Repos ${(this.props.repoUser.public_repos) ? this.props.repoUser.public_repos : ''}`}   </span>
                         <span>
                             <i className="user icon"></i>
-                            {`${ this.props.repoUser.followers } Followers`}
+                            {`${ (this.props.repoUser.followers) ? this.props.repoUser.followers : '' } Followers`}
                         </span>
                     </div>
                 </div>
